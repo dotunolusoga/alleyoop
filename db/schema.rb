@@ -11,10 +11,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161219211753) do
+ActiveRecord::Schema.define(version: 20161223183412) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "experiences", force: :cascade do |t|
+    t.string   "experience_type"
+    t.string   "experience_title"
+    t.text     "tagline"
+    t.text     "summary"
+    t.text     "about_host"
+    t.datetime "experience_date"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.string   "location_name"
+    t.text     "street"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zipcode"
+    t.string   "drinks"
+    t.boolean  "alcohol"
+    t.string   "food"
+    t.boolean  "internet"
+    t.boolean  "parking"
+    t.string   "tickets"
+    t.text     "note"
+    t.text     "guest_requirement"
+    t.integer  "capacity"
+    t.integer  "price"
+    t.boolean  "active"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
