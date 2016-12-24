@@ -8,7 +8,7 @@ class Experience < ActiveRecord::Base
   attr_accessor :form_step
 
   validates :experience_type, :experience_title, :tagline,
-            :summary, :about_host, presence: true, if: -> { required_for_step?(:identity) }
+            :summary, :about_host, presence: true, if: -> { required_for_step?(:details) }
 
   validates :experience_date, :start_time, :end_time,
             presence: true, if: -> { required_for_step?(:time) }

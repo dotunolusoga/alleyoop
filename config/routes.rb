@@ -1,13 +1,7 @@
 Rails.application.routes.draw do
 
 
-  namespace :experience do
-  get 'build_controller/show'
-  end
-
-  namespace :experience do
-  get 'build_controller/update'
-  end
+  root 'pages#home'
 
   devise_for :users,
              :path => '',
