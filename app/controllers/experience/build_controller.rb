@@ -9,5 +9,8 @@ class Experience::BuildController < ApplicationController
   end
 
   def update
+    @experience = Experience.find(params[:experience_id])
+    @experience.update(experience_params(step))
+    render_wizard @experience
   end
 end

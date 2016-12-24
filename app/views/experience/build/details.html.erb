@@ -1,1 +1,54 @@
-Test
+<div class="panel panel-default">
+  <div class="panel-heading">
+    Create your unique experience
+  </div>
+  <div class="panel-body">
+    <div class="container">
+
+      <%= simple_form_for @experience, method: :put, url: wizard_path do |f| %>
+
+        <div class="row">
+
+          <div class="col-md-10">
+            <div class="form-group">
+              <%= f.input :experience_type, class: "form-control", prompt: "Select...", collection: Experience::EXPERIENCE_TYPE %>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="form-group">
+              <%= f.input :experience_title, class: "form-control"%>
+            </div>
+          </div>
+
+          <div class="col-md-8">
+            <div class="form-group">
+              <%= f.input :tagline, class: "form-control"%>
+            </div>
+          </div>
+
+          <div class="col-md-8">
+            <div class="form-group">
+              <%= f.input :summary, as: :text, class: "form-control"%>
+            </div>
+          </div>
+
+          <div class="col-md-10">
+            <div class="form-group">
+              <%= f.input :about_host, as: :text, label: "About You, the Host", class: "form-control"%>
+            </div>
+          </div>
+
+          <div class="actions col-md-10">
+            <%= f.submit "Save & Continue", :class => "btn btn-primary" %>
+          </div>
+
+        </div>
+
+      <% end %>
+
+    </div>
+
+  </div>
+
+</div>

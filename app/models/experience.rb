@@ -24,6 +24,20 @@ class Experience < ActiveRecord::Base
     return true if self.form_steps.index(step.to_s) <= self.form_steps.index(form_step)
   end
 
+  EXPERIENCE_TYPE = [
+    ['Arts & Design', 'Arts_Design'],
+    ['Fashion', 'Fashion'],
+    ['Sports', 'Sports'],
+    ['Wellness', 'Wellness'],
+    ['Nature', 'Nature'],
+    ['Food & Drink', 'Food_Drink'],
+    ['Lifestyle', 'Lifestyle'],
+    ['History', 'History'],
+    ['Music', 'Music'],
+    ['Business', 'Business'],
+    ['Nightlife', 'Nightlife']
+  ]
+
 
 
 end
