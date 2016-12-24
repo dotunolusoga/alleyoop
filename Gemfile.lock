@@ -155,6 +155,9 @@ GEM
     sendgrid-rails (2.0.5)
       actionmailer (>= 3.0.0)
       activesupport (>= 2.1.0)
+    simple_form (3.2.1)
+      actionpack (> 4, < 5.1)
+      activemodel (> 4, < 5.1)
     spring (2.0.0)
       activesupport (>= 4.2)
     sprockets (3.7.0)
@@ -201,6 +204,7 @@ DEPENDENCIES
   sass-rails (>= 3.2)
   sdoc (~> 0.4.0)
   sendgrid-rails (~> 2.0, >= 2.0.5)
+  simple_form
   spring
   toastr-rails
   uglifier (>= 1.3.0)
