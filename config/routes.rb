@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
 
 
+  namespace :experience do
+  get 'build_controller/show'
+  end
 
+  namespace :experience do
+  get 'build_controller/update'
+  end
 
   devise_for :users,
              :path => '',
@@ -11,6 +17,9 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show]
 
-  resources :experiences
+  resources :experiences, only: [:new, :create, :show, :index] do
+    resources :build, only: [:show, :update], controller: 'experience/build'
+  end
+
 
 end
