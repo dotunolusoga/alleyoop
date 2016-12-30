@@ -2,4 +2,52 @@
   <div class="panel-heading">
     Where will this experience be...
   </div>
+  <div class="panel-body">
+    <div class="container">
+
+      <%= simple_form_for @experience, method: :put, url: wizard_path do |f| %>
+
+        <div class="row">
+
+          <div class="col-md-10">
+            <div class="form-group">
+              <%= f.input :location_name, class: "form-control" %>
+            </div>
+          </div>
+
+          <div class="col-md-10">
+            <div class="form-group">
+              <%= f.input :street, class: "form-control"%>
+            </div>
+          </div>
+
+          <div class="col-md-5">
+            <div class="form-group">
+              <%= f.input :city, class: "form-control"%>
+            </div>
+          </div>
+
+          <div class="col-md-5">
+            <div class="form-group">
+              <%= f.input :state, class: "form-control"%>
+            </div>
+          </div>
+
+          <div class="col-md-10">
+            <div class="form-group">
+              <%= f.input :zipcode, class: "form-control"%>
+            </div>
+          </div>
+
+          <div class="actions col-md-10">
+            <%= f.submit "Save & Continue", :class => "btn btn-primary" %>
+          </div>
+
+        </div>
+
+      <% end %>
+
+    </div>
+
+  </div>
 </div>

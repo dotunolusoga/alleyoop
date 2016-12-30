@@ -2,4 +2,50 @@
   <div class="panel-heading">
     When will this experience be...
   </div>
+  <div class="panel-body">
+    <div class="container">
+
+      <%= simple_form_for @experience, method: :put, url: wizard_path do |f| %>
+
+        <div class="row">
+
+          <div class="col-md-10">
+            <div class="form-group">
+              <%= f.date_select :experience_date, label: "Date" %>
+            </div>
+          </div>
+
+          <div class="col-md-10">
+            <p>
+              Experience time
+            </p>
+          </div>
+
+          <div class="col-md-5">
+            <div class="form-group">
+              <%= f.label "Start Time" %>
+              <%= f.time_select :start_time, minute_step: 15, ampm: true, class: "form-control"%>
+            </div>
+          </div>
+
+          <div class="col-md-5">
+            <div class="form-group">
+              <%= f.label "End Time" %>
+              <%= f.time_select :end_time, minute_step: 15, ampm: true, class: "form-control"%>
+            </div>
+          </div>
+
+
+
+          <div class="actions col-md-10">
+            <%= f.submit "Save & Continue", :class => "btn btn-primary" %>
+          </div>
+
+        </div>
+
+      <% end %>
+
+    </div>
+
+  </div>
 </div>
