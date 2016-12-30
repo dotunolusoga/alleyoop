@@ -2,4 +2,42 @@
   <div class="panel-heading">
     Final details...
   </div>
+  <div class="panel-body">
+    <div class="container">
+
+      <%= simple_form_for @experience, method: :put, url: wizard_path,
+        wrapper: :vertical_input_group,
+        wrapper_mappings: {
+            check_boxes: :horizontal_radio_and_checkboxes,
+            radio_buttons: :horizontal_radio_and_checkboxes,
+            file: :horizontal_file_input,
+            boolean: :horizontal_boolean
+          } do |f| %>
+
+        <div class="row">
+          <div class="col-md-10">
+            <div class="form-group">
+              <%= f.input :capacity, class: "form-control", prompt: "Select...", collection: 1..30 %>
+            </div>
+          </div>
+
+          <div class="col-md-10">
+            <%= f.input :price, wrapper: :vertical_input_group do %>
+              <span class="input-group-addon">USD($)</span>
+              <%= f.input_field :price, class: "form-control"%>
+            <% end %>
+          </div>
+
+          <div class="actions col-md-10">
+            <%= f.submit "Submit for review", :class => "btn btn-primary" %>
+          </div>
+
+
+        </div>
+
+      <% end %>
+
+    </div>
+
+  </div>
 </div>

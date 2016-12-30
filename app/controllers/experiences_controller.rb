@@ -1,5 +1,5 @@
 class ExperiencesController < ApplicationController
-  # before_action set_experience, only: [:show, :edit, :update]
+  before_action :set_experience, only: [:show, :edit, :update]
   before_action :authenticate_user!, except: [:show]
 
   def index
@@ -11,22 +11,15 @@ class ExperiencesController < ApplicationController
   end
 
   def new
-    @experience = current_user.experience.build
+    @experience = current_user.experiences.build
   end
 
   def create
     @experience = Experience.new
+    @experience.user_id = current_user.id
+    # @experience = current_user.experiences.build(experience_params)
     @experience.save(validate: false)
     redirect_to experience_build_path(@experience, Experience.form_steps.first), notice: "Experience created!"
-
-    # @experience = current_user.experience.build(experience_params)
-    #
-    # if @experience.save
-    #   redirect_to @experience, notice: "Experience created!"
-    # else
-    #   render :new
-    # end
-
   end
 
   def edit

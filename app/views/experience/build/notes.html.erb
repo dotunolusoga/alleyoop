@@ -2,4 +2,35 @@
   <div class="panel-heading">
     Notes...
   </div>
+  <div class="panel-body">
+    <div class="container">
+
+      <%= simple_form_for @experience, method: :put, url: wizard_path do |f| %>
+
+        <div class="row">
+
+          <div class="col-md-10">
+            <div class="form-group">
+              <%= f.input :note, as: :text, class: "form-control" %>
+            </div>
+          </div>
+
+          <div class="col-md-10">
+            <div class="form-group">
+              <%= f.input :guest_requirement, as: :text, class: "form-control"%>
+            </div>
+          </div>
+
+
+          <div class="actions col-md-10">
+            <%= f.submit "Save & Continue", :class => "btn btn-primary" %>
+          </div>
+
+        </div>
+
+      <% end %>
+
+    </div>
+
+  </div>
 </div>

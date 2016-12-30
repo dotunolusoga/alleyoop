@@ -14,7 +14,7 @@ class Experience < ActiveRecord::Base
             presence: true, if: -> { required_for_step?(:time) }
 
   validates :location_name, :street, :city, :state,
-            :zipcode, presence: true, presence: true, if: -> { required_for_step?(:location) }
+            :zipcode, presence: true, if: -> { required_for_step?(:location) }
 
   validates :capacity, :price, presence: true, if: -> { required_for_step?(:finishing_touches) }
 
