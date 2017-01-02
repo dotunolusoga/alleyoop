@@ -28,7 +28,7 @@ gem 'wicked'
 
 gem 'simple_form'
 
-gem 'carrierwave', '~> 1.0'
+gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'mini_magick'
 gem 'fog'
 
