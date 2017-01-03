@@ -1,0 +1,43 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    Photos of your experience....
+  </div>
+
+  <div class="panel-body">
+    <div class="container">
+
+      <%= simple_form_for @experience, method: :put, html: { multipart: true }, url: wizard_path do |f| %>
+
+        <div class="row">
+
+          <div class="col-md-4">
+            <div class="form-group">
+              <span class="btn btn-default btn-file">
+                <i class="fa fa-cloud-upload fa-lg"></i> Upload Photos
+                <%= f.simple_fields_for :photo do |f| %>
+                  <%= f.input_field :image, multiple: true, type: :file, name: "photos_attributes[:image][]" %>
+                <% end %>
+              </span>
+            </div>
+          </div>
+
+          <div id="photos">
+
+            <%= render 'photos/list' %>
+
+          </div>
+
+
+          <div class="actions col-md-10">
+            <%= f.submit "Save & Continue", :class => "btn btn-primary" %>
+          </div>
+
+        </div>
+
+      <% end %>
+
+    </div>
+
+  </div>
+
+</div>

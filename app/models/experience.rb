@@ -1,8 +1,12 @@
 class Experience < ActiveRecord::Base
   belongs_to :user
 
+  has_many :photos
+  accepts_nested_attributes_for :photos
+
+
   cattr_accessor :form_steps do
-    %w(details location time amenities notes finishing_touches)
+    %w(details images location time amenities notes finishing_touches)
   end
 
   attr_accessor :form_step

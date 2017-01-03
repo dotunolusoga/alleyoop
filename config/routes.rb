@@ -15,5 +15,7 @@ Rails.application.routes.draw do
     resources :build, only: [:show, :update], controller: 'experience/build'
   end
 
+  resources :photos
+
 
 end
