@@ -21,8 +21,8 @@ class Experience::BuildController < ApplicationController
     permitted_attributes = case step
                            when "details"
                              [:experience_type, :experience_title, :tagline, :summary, :about_host]
-                           when "images"
-                             [photos_attributes: [:id, :experience_id, :image]]
+                           when "photos"
+                             [:images]
                            when "location"
                              [:location_name, :street, :city, :state, :zipcode]
                            when "time"

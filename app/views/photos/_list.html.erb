@@ -1,11 +1,11 @@
-<% if @photos %>
+<% if @experience.images %>
 
   <div class="row">
-    <% @photos.each do |photo| %>
+    <% @experience.images.each do |photo| %>
       <div class="col-md-4">
         <div class="panel panel-default">
           <div class="panel-heading preview">
-            <%= image_tag photo.image.url() %>
+            <%= image_tag photo.image_url %>
           </div>
           <div class="panel-body">
             <span class="pull-right">

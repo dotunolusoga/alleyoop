@@ -4,15 +4,19 @@ class Experience < ActiveRecord::Base
   has_many :photos
   accepts_nested_attributes_for :photos
 
+  mount_uploaders :images, ImageUploader
+
 
   cattr_accessor :form_steps do
-    %w(details images location time amenities notes finishing_touches)
+    %w(details photos location time amenities notes finishing_touches)
   end
 
   attr_accessor :form_step
 
   validates :experience_type, :experience_title, :tagline,
             :summary, :about_host, presence: true, if: -> { required_for_step?(:details) }
+
+  validates :images, presence: true, if: -> { required_for_step?(:photos) }
 
   validates :experience_date, :start_time, :end_time,
             presence: true, if: -> { required_for_step?(:time) }
