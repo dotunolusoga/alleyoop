@@ -22,7 +22,7 @@ class Experience::BuildController < ApplicationController
                            when "details"
                              [:experience_type, :experience_title, :tagline, :summary, :about_host]
                            when "photos"
-                             [:images]
+                             [{images: []}]
                            when "location"
                              [:location_name, :street, :city, :state, :zipcode]
                            when "time"
