@@ -19,14 +19,7 @@ class ExperiencesController < ApplicationController
     @experience = Experience.new
     @experience.user_id = current_user.id
     if @experience.save(validate: false)
-
-      # params[:images]['image'].each do |image|
-      #   @photo = @experience.photos.create!(image: image)
-      # end
-      #
-      # @photos = @experience.photos
       redirect_to experience_build_path(@experience, Experience.form_steps.first), notice: "Begin creating your experience..."
-
     end
   end
 
@@ -40,17 +33,6 @@ class ExperiencesController < ApplicationController
 
   def update
     if @experience.update(experience_params)
-
-      # params[:photos]['image'].each do |image|
-      #   @photo = @experience.photos.create!(image: image)
-      # end
-
-      # if params[:images]
-      #   params[:images].each do |image|
-      #     @experience.photos.create(image: image)
-      #   end
-      # end
-
       redirect_to @experience, notice: "Your changes have been saved"
     else
       render :edit
