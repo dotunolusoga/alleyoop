@@ -18,19 +18,15 @@
               </span>
             </div>
           </div>
-
-          <div id="photos">
-
-            <%= render 'photos/list' %>
-
-          </div>
-
-
-          <div class="actions col-md-10">
-            <%= f.submit "Save & Continue", :class => "btn btn-primary" %>
-          </div>
-
         </div>
+
+        <div id="photos"> <%= render 'photos/list' %> </div>
+
+
+        <div class="actions col-md-10">
+          <%= f.submit "Save & Continue", :class => "btn btn-primary" %>
+        </div>
+
 
       <% end %>
 
