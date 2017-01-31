@@ -1,0 +1,193 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    Edit your experience
+  </div>
+  <div class="panel-body">
+    <div class="container">
+
+      <%= simple_form_for @experience do |f| %>
+
+        <div class="row">
+          <h3>DETAILS</h3>
+          <div class="col-md-6">
+            <div class="form-group">
+              <%= f.input :experience_type, class: "form-control", prompt: "Select...", collection: Experience::EXPERIENCE_TYPE %>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="form-group">
+              <%= f.input :experience_title, class: "form-control"%>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="form-group">
+              <%= f.input :tagline, class: "form-control"%>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="form-group">
+              <%= f.input :summary, as: :text, class: "form-control"%>
+            </div>
+          </div>
+
+          <div class="col-md-12">
+            <div class="form-group">
+              <%= f.input :about_host, as: :text, label: "About You, the Host", class: "form-control"%>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="row">
+          <h3>IMAGES</h3>
+          <div class="col-md-4">
+            <div class="form-group">
+              <span class="btn btn-default btn-file">
+                <i class="fa fa-cloud-upload fa-lg"></i> Upload Photos
+                <%= f.file_field :images, class: "file_upload", multiple: true %>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div id="photos"> <%= render 'photos/list' %> </div>
+
+        <div class="row">
+          <h3>LOCATION</h3>
+          <div class="col-md-12">
+            <div class="form-group">
+              <%= f.input :location_name, class: "form-control" %>
+            </div>
+          </div>
+
+          <div class="col-md-12">
+            <div class="form-group">
+              <%= f.input :street, class: "form-control"%>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="form-group">
+              <%= f.input :city, class: "form-control"%>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="form-group">
+              <%= f.input :state, class: "form-control"%>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="form-group">
+              <%= f.input :zipcode, class: "form-control"%>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <h3>DATE/TIME</h3>
+          <div class="col-md-10">
+            <div class="form-group">
+              <%= f.date_select :experience_date, label: "Date" %>
+            </div>
+          </div>
+
+          <div class="col-md-5">
+            <div class="form-group">
+              <%= f.label "Start Time" %>
+              <%= f.time_select :start_time, minute_step: 15, ampm: true, class: "form-control"%>
+            </div>
+          </div>
+
+          <div class="col-md-5">
+            <div class="form-group">
+              <%= f.label "End Time" %>
+              <%= f.time_select :end_time, minute_step: 15, ampm: true, class: "form-control"%>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <h3>AMENITIES</h3>
+          <div class="col-md-10">
+            <div class="form-group">
+              <%= f.input :food, as: :text, class: "form-control" %>
+            </div>
+          </div>
+
+          <div class="col-md-10">
+            <div class="form-group">
+              <%= f.input :drinks, as: :text, class: "form-control"%>
+            </div>
+          </div>
+
+          <div class="col-md-10">
+            <div class="form-group">
+              <%= f.input :tickets, as: :text, class: "form-control"%>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group">
+                <%= f.input :alcohol, as: :boolean, class: "form-control"%>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <%= f.input :internet, as: :boolean, class: "form-control"%>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <%= f.input :parking, as: :boolean, class: "form-control"%>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <h3>NOTES</h3>
+          <div class="col-md-6">
+            <div class="form-group">
+              <%= f.input :note, as: :text, class: "form-control" %>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="form-group">
+              <%= f.input :guest_requirement, as: :text, class: "form-control"%>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <h3>FINISHING TOUCHES</h3>
+          <div class="col-md-6">
+            <div class="form-group">
+              <%= f.input :capacity, class: "form-control", prompt: "Select...", collection: 1..30 %>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <%= f.input :price, wrapper: :vertical_input_group do %>
+              <span class="input-group-addon">USD($)</span>
+              <%= f.input_field :price, class: "form-control"%>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="actions col-md-10">
+          <%= f.submit "Save", :class => "btn btn-primary" %>
+        </div>
+
+      <% end %>
+
+    </div>
+
+  </div>
+
+</div>

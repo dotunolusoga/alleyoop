@@ -14,7 +14,6 @@ class Experience::BuildController < ApplicationController
     render_wizard @experience
   end
 
-
   private
 
   def experience_params(step)

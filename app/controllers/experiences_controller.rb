@@ -7,12 +7,11 @@ class ExperiencesController < ApplicationController
   end
 
   def show
-    @photos = @experience.photos.all
+
   end
 
   def new
     @experience = current_user.experiences.build
-    @photo = @experience.photos.build
   end
 
   def create
@@ -25,7 +24,6 @@ class ExperiencesController < ApplicationController
 
   def edit
     if current_user.id == @experience.user.id
-      @photos = @experience.photos
     else
       redirect_to root_path, notice: "You're not authorized!"
     end

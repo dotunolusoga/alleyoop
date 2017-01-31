@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show]
 
-  resources :experiences, only: [:new, :create, :show, :index] do
+  resources :experiences, only: [:new, :create, :edit, :update, :show, :index] do
     resources :build, only: [:show, :update], controller: 'experience/build'
 
   end
