@@ -1,2 +1,85 @@
-<h1>Experiences#show</h1>
-<p>Find me in app/views/experiences/show.html.erb</p>
+<div class="panel panel-default">
+  <div class="panel-body">
+
+    <!-- Image -->
+    <div class="row">
+      <div class="col-md-12">
+        <%= image_tag @experience.images[0].url(), class: "img-responsive" %>
+      </div>
+    </div>
+
+    <br />
+
+    <!-- Main Info-->
+    <div class="row">
+     <div class="col-md-8">
+       <div class="row">
+         <div class="col-md-3 text-center">
+           <%= image_tag avatar_url(@experience.user), class:"img-circle avatar-large" %><br /><br />
+           <%= @experience.user.fullname%>
+         </div>
+
+         <div class="col-md-9">
+           <h4><%= @experience.experience_title %></h4>
+           <%= @experience.tagline %><br /><br />
+
+           <div class="row text-center row-space-1">
+             <div class="col-sm-3">
+               <i class="fa fa-location-arrow fa-2x"></i>
+             </div>
+             <div class="col-sm-3">
+               <i class="fa fa-users fa-2x"></i>
+             </div>
+             <div class="col-sm-3">
+               <i class="fa fa-bed fa-2x"></i>
+             </div>
+             <div class="col-sm-3">
+               <i class="fa fa-calendar fa-2x"></i>
+             </div>
+           </div>
+
+           <div class="row text-center">
+             <div class="col-sm-3">
+               <%= @experience.experience_type %>
+             </div>
+             <div class="col-sm-3">
+               <%= @experience.capacity %> <%= @experience.capacity > 1? "Guests" : "Guest" %>
+             </div>
+           </div>
+         </div>
+       </div>
+     </div>
+
+     <div class="col-md-4">
+       <!-- Reservation form -->
+     </div>
+    </div>
+
+    <!-- About -->
+    <div class="row">
+      <div class="col-md-12">
+        <h2>About This Experience</h2>
+        <p><%= @experience.summary %></p>
+      </div>
+    </div>
+
+    <!-- Amenities -->
+    <div class="row">
+      <div class="col-md-2">
+        <p>Amenities</p>
+      </div>
+      <div class="col-md-10">
+        <div class="row">
+          <div class="col-md-6">
+
+          </div>
+          <div class="col-md-6">
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
