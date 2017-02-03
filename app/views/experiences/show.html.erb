@@ -123,5 +123,40 @@
       </div>
     </div>
 
+    <br />
+    <hr />
+
+    <!-- Google Map -->
+    <div class="row">
+      <div class="col-md-12">
+        <div id="map"></div>
+
+        <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['MAP_API_KEY']%>&callback=initialize"></script>
+
+        <script>
+          var myCoords = {lat: <%= @experience.latitude %>, lng: <%= @experience.longitude %>};
+
+          function initialize() {
+            var mapCanvas = document.getElementById('map');
+            var mapOptions = {
+              center: myCoords,
+              zoom: 14,
+              mapTypeId: google.maps.MapTypeId.ROADMAP
+            }
+            var map = new google.maps.Map(mapCanvas, mapOptions);
+
+            var marker = new google.maps.Marker({
+              position: myCoords,
+              animation: google.maps.Animation.DROP,
+              map: map,
+              title: '<%= @experience.location_name %>'
+            });
+          }
+        </script>
+
+      </div>
+    </div>
+
   </div>
 </div>

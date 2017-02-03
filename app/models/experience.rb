@@ -6,6 +6,10 @@ class Experience < ActiveRecord::Base
 
   mount_uploaders :images, ImageUploader
 
+  geocoded_by :address
+
+  after_validation :geocode, if: :address_changed?
+
 
   cattr_accessor :form_steps do
     %w(details photos location time amenities notes finishing_touches)
@@ -31,6 +35,15 @@ class Experience < ActiveRecord::Base
     return true if form_step.nil?
     return true if self.form_steps.index(step.to_s) <= self.form_steps.index(form_step)
   end
+
+  def address
+    [street, city, state].compact.join(', USA')
+  end
+
+  def address_changed?
+    street_changed? || city_changed? || state_changed? || zipcode_changed?
+  end
+
 
   EXPERIENCE_TYPE = [
     ['Arts & Design', 'Arts_Design'],
