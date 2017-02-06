@@ -13,7 +13,10 @@ Rails.application.routes.draw do
 
   resources :experiences, only: [:new, :create, :edit, :update, :show, :index] do
     resources :build, only: [:show, :update], controller: 'experience/build'
+  end
 
+  resources :experiences do
+    resources :reservations, only: [:create]
   end
 
 

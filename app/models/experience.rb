@@ -1,13 +1,11 @@
 class Experience < ActiveRecord::Base
   belongs_to :user
 
-  has_many :photos
-  accepts_nested_attributes_for :photos
+  has_many :reservations
 
   mount_uploaders :images, ImageUploader
 
   geocoded_by :address
-
   after_validation :geocode, if: :address_changed?
 
 
