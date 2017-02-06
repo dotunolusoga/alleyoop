@@ -158,5 +158,23 @@
       </div>
     </div>
 
+    <!-- Experiences close by -->
+    <h3>Experiences Close By</h3>
+    <div class="row">
+      <% for experience in @experience.nearbys(10) %>
+        <div class="col-md-4">
+          <div class="panel panel-default">
+            <div class="panel-heading preview">
+              <%= image_tag experience.images[0].medium.url %>
+            </div>
+            <div class="panel-body">
+              <%= link_to experience.experience_title, experience %><br />
+              (<%= experience.distance.round(2) %> miles away)
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
   </div>
 </div>
