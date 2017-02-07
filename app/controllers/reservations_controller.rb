@@ -1,10 +1,10 @@
 class ReservationsController < ApplicationController
-  before_action :authenticate_user
+  before_action :authenticate_user!
 
   def create
     @reservation = current_user.reservations.create(reservation_params)
 
-    redirect_to @reservation.experience
+    redirect_to @reservation.experience, notice: "Your reservation has been created..."
   end
 
 

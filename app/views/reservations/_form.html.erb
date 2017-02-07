@@ -1,0 +1,10 @@
+<%= simple_form_for([@experience, @experience.reservations.new]) do |f| %>
+
+  <%= f.hidden_field :reservation_date, value: @experience.experience_date %>
+  <%= f.hidden_field :experience_id, value: @experience.id %>
+  <%= f.hidden_field :price, value: @experience.price %>
+
+  <br />
+  <%= f.submit "Book Now", class: "btn btn-primary" %>
+
+<% end %>
