@@ -1,0 +1,29 @@
+.reservation-table td, th {
+  width: 20rem;
+  height: 2rem;
+  border: 1px solid #CCCCCC;
+  text-align: center;
+  padding: 10px;
+}
+
+th {
+  background: lightblue;
+  border-color: white;
+}
+
+ .wide {
+  width: 100%;
+}
+
+.price_tag {
+  background-color: #606567;
+  color: #FFFFFF;
+  font-size: 20px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.event_date {
+  font-size: 16px;
+  padding: 10px;
+}

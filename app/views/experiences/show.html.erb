@@ -24,26 +24,26 @@
            <%= @experience.tagline %><br /><br />
 
            <div class="row text-center row-space-1">
-             <div class="col-sm-3">
+             <div class="col-sm-4">
                <i class="fa fa-location-arrow fa-2x"></i>
              </div>
-             <div class="col-sm-3">
+             <div class="col-sm-4">
                <i class="fa fa-users fa-2x"></i>
              </div>
-             <div class="col-sm-3">
-               <i class="fa fa-bed fa-2x"></i>
-             </div>
-             <div class="col-sm-3">
+             <div class="col-sm-4">
                <i class="fa fa-calendar fa-2x"></i>
              </div>
            </div>
 
            <div class="row text-center">
-             <div class="col-sm-3">
+             <div class="col-sm-4">
                <%= @experience.experience_type %>
              </div>
-             <div class="col-sm-3">
+             <div class="col-sm-4">
                <%= @experience.capacity %> <%= @experience.capacity > 1? "Guests" : "Guest" %>
+             </div>
+             <div class="col-sm-4">
+               <%= @experience.experience_date.strftime('%B %d') %>
              </div>
            </div>
          </div>
@@ -56,6 +56,9 @@
      </div>
     </div>
 
+    <br />
+    <hr />
+
     <!-- About -->
     <div class="row">
       <div class="col-md-12">
@@ -67,24 +70,55 @@
     <!-- Amenities -->
     <div class="row">
       <div class="col-md-2">
-        <p>Amenities</p>
+        <h4>Amenities</h4>
       </div>
       <div class="col-md-10">
-        <div class="row">
-          <div class="col-md-6">
-            <ul class="amenities">
-              <li class=" <%= 'text-line-through' if !@experience.alcohol %>">Alcohol</li>
-              <li class=" <%= 'text-line-through' if !@experience.internet %>">Internet</li>
-              <li class=" <%= 'text-line-through' if !@experience.parking %>">Parking</li>
-            </ul>
+        <div class="row text-center row-space-1">
+          <div class="col-md-2">
+            <i class="fa fa-cutlery fa-2x"></i>
           </div>
-          <div class="col-md-6">
-
+          <div class="col-md-2">
+            <i class="fa fa-beer fa-2x"></i>
+          </div>
+          <div class="col-md-2">
+            <i class="fa fa-glass fa-2x"></i>
+          </div>
+          <div class="col-md-2">
+            <i class="fa fa-wifi fa-2x"></i>
+          </div>
+          <div class="col-md-2">
+            <i class="fa fa-car fa-2x"></i>
           </div>
         </div>
+
+        <div class="row text-center">
+          <% unless @experience.food.nil? %>
+            <div class="col-md-2">
+              <%= @experience.food %>
+            </div>
+          <% end %>
+          <% unless @experience.drinks.nil? %>
+            <div class="col-md-2">
+              <%= @experience.drinks %>
+            </div>
+          <% end %>
+          <div class="col-md-2">
+            <p class=" <%= 'text-line-through' if !@experience.alcohol %>">Alcohol</p>
+          </div>
+          <div class="col-md-2">
+            <p class=" <%= 'text-line-through' if !@experience.internet %>">WiFi</p>
+          </div>
+          <div class="col-md-2">
+            <p class=" <%= 'text-line-through' if !@experience.parking %>">Free Parking</p>
+          </div>
+        </div>
+
       </div>
 
     </div>
+
+    <br />
+    <hr />
 
     <!-- Carousel -->
     <div class="row">

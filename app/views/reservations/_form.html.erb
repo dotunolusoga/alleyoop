@@ -1,10 +1,41 @@
 <%= simple_form_for([@experience, @experience.reservations.new]) do |f| %>
 
+  <div class="row">
+    <div class="col-md-12 price_tag">
+      <span class="pull-right">$<%= @experience.price %></span>
+    </div>
+  </div>
+
+  <div id="preview">
+
+    <h4><span id="message"></span></h4>
+
+    <div class="row">
+      <div class="col-md-12 event_date">
+        <%= @experience.experience_date.strftime('%A, %B %d, %Y') %>
+      </div>
+    </div>
+
+    <table class="reservation-table">
+      <tbody>
+        <tr>
+          <th>FROM...</th>
+          <th>...TILL</th>
+        </tr>
+        <tr>
+          <td><%= @experience.start_time.strftime('%l:%M %p') %></td>
+          <td><%= @experience.end_time.strftime('%l:%M %p') %></td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
   <%= f.hidden_field :reservation_date, value: @experience.experience_date %>
   <%= f.hidden_field :experience_id, value: @experience.id %>
   <%= f.hidden_field :price, value: @experience.price %>
 
   <br />
-  <%= f.submit "Book Now", class: "btn btn-primary" %>
+  <%= f.submit "RESERVE A SPOT", class: "btn btn-primary wide" %>
 
 <% end %>
