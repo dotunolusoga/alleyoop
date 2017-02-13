@@ -1,0 +1,41 @@
+<div class="row">
+  <div class="col-md-3">
+    <ul class="sidebar-list">
+      <li class="sidebar-item"><%= link_to "Your Experience", experiences_path, class: "sidebar-link" %></li>
+      <li class="sidebar-item"><%= link_to "Your Reservations", your_reservations_path, class: "sidebar-link" %></li>
+      <li class="sidebar-item"><%= link_to "Your Outings", your_outings_path, class: "sidebar-link active" %></li>
+    </ul>
+  </div>
+  <div class="col-md-9">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        Your Outings
+      </div>
+      <div class="panel-body">
+
+        <% @outings.each do |outing| %>
+          <div class="row">
+            <div class="col-md-2">
+              <%= outing.reservation_date.strftime('%v') %>
+            </div>
+            <div class="col-md-6">
+              <%= link_to experience_path(outing.experience) do %>
+                <%= image_tag outing.experience.images[0].thumb.url %>
+              <% end %>
+            </div>
+            <div class="col-md-2">
+              <%= link_to user_path(outing.experience.user) do %>
+                <%= image_tag avatar_url(outing.experience.user), class:"img-circle avatar-medium" %>
+              <% end %>
+            </div>
+            <div class="col-md-2 right">
+              <h4>$<%= outing.price %></h4>
+            </div>
+          </div>
+          <hr />
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+</div>

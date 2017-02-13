@@ -2,9 +2,21 @@ class ReservationsController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    @reservation = current_user.reservations.create(reservation_params)
+    @experience = Experience.find(params[:experience_id])
+    if current_user == @experience.user
+      redirect_to @experience, notice: "You can't reserve a spot on your own experience..."
+    else
+      @reservation = current_user.reservations.create(reservation_params)
+      redirect_to @reservation.experience, notice: "Your reservation has been created..."
+    end
+  end
 
-    redirect_to @reservation.experience, notice: "Your reservation has been created..."
+  def your_outings
+    @outings = current_user.reservations
+  end
+
+  def your_reservations
+    @experiences = current_user.experiences
   end
 
 
