@@ -3,7 +3,8 @@ class Experience < ActiveRecord::Base
 
   has_many :reservations
 
-  mount_uploaders :images, ImageUploader
+  has_many :image_uploads
+  accepts_nested_attributes_for :image_uploads
 
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
@@ -18,7 +19,7 @@ class Experience < ActiveRecord::Base
   validates :experience_type, :experience_title, :tagline,
             :summary, :about_host, presence: true, if: -> { required_for_step?(:details) }
 
-  validates :images, presence: true, if: -> { required_for_step?(:photos) }
+  # validates :images, presence: true, if: -> { required_for_step?(:photos) }
 
   validates :experience_date, :start_time, :end_time,
             presence: true, if: -> { required_for_step?(:time) }

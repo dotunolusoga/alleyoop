@@ -11,13 +11,16 @@
         <div class="row">
 
           <div class="col-md-4">
-            <div class="form-group">
-              <span class="btn btn-default btn-file">
-                <i class="fa fa-cloud-upload fa-lg"></i> Upload Photos
-                <%= f.file_field :images, class: "file_upload", multiple: true %>
-              </span>
-            </div>
+            <%= f.simple_fields_for :image_uploads, ImageUpload.new do |p| %>
+              <div class="form-group">
+                <span class="btn btn-default btn-file">
+                  <i class="fa fa-cloud-upload fa-lg"></i> Upload Photos
+                  <%= p.input :image, as: :file, multiple: true, name: "experience[image_uploads_attributes][][image]", class: "file_upload" %>
+                </span>
+              </div>
+            <% end %>
           </div>
+
         </div>
 
         <div id="photos"> <%= render 'photos/list' %> </div>

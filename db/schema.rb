@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170213194138) do
+ActiveRecord::Schema.define(version: 20170215171300) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,6 +57,13 @@ ActiveRecord::Schema.define(version: 20170213194138) do
   end
 
   add_index "experiences", ["user_id"], name: "index_experiences_on_user_id", using: :btree
+
+  create_table "image_uploads", force: :cascade do |t|
+    t.integer  "experience_id"
+    t.string   "image"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
 
   create_table "messages", force: :cascade do |t|
     t.text     "content"

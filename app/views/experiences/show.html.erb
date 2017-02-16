@@ -4,7 +4,7 @@
     <!-- Image -->
     <div class="row">
       <div class="col-md-12">
-        <%= image_tag @experience.images[0].url(), class: "img-responsive" if @experience.images.length > 0 %>
+        <%= image_tag @image_uploads.first.image_url, class: "img-responsive" if @image_uploads.length > 0 %>
       </div>
     </div>
 
@@ -125,9 +125,9 @@
       <div class="col-md-10 col-md-offset-1">
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
           <!-- Indicators -->
-          <% if @experience.images %>
+          <% if @image_uploads %>
             <ol class="carousel-indicators">
-              <% @experience.images.each do |image| %>
+              <% @image_uploads.each do |image| %>
                 <li data-target="#myCarousel" data-slide-to="<%= image %>"></li>
               <% end %>
             </ol>
@@ -135,10 +135,10 @@
 
           <!-- Wrapper for slides -->
           <div class="carousel-inner" role="listbox">
-            <% if @experience.images %>
-              <% @experience.images.each do |image| %>
-                <div class="item <%= 'active' if image == @experience.images[0] %>">
-                  <%= image_tag image.url %>
+            <% if @image_uploads %>
+              <% @image_uploads.each do |image| %>
+                <div class="item <%= 'active' if image == @image_uploads.first %>">
+                  <%= image_tag image.image_url %>
                 </div>
               <% end %>
             <% end %>
@@ -200,7 +200,7 @@
         <div class="col-md-4">
           <div class="panel panel-default">
             <div class="panel-heading preview">
-              <%= image_tag experience.images[0].medium.url %>
+              <%= image_tag experience.image_uploads.first.image_url(:medium) %>
             </div>
             <div class="panel-body">
               <%= link_to experience.experience_title, experience %><br />

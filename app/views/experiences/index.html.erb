@@ -16,7 +16,7 @@
         <% @experiences.each do |experience| %>
           <div class="row experience-list">
             <div class="col-md-2">
-              <%= image_tag experience.images[0].thumb.url if experience.images.length > 0 %>
+              <%= image_tag experience.image_uploads.first.image_url(:thumb) if experience.image_uploads.length > 0 %>
             </div>
             <div class="col-md-7">
               <h4><%= experience.experience_title %></h4>

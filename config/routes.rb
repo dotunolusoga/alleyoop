@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+  resources :image_uploads
   root 'pages#home'
 
   devise_for :users,

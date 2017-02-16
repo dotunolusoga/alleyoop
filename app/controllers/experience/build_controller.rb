@@ -21,7 +21,7 @@ class Experience::BuildController < ApplicationController
                            when "details"
                              [:experience_type, :experience_title, :tagline, :summary, :about_host]
                            when "photos"
-                             [{images: []}]
+                             [image_uploads_attributes: [:id, :experience_id, :image]]
                            when "location"
                              [:location_name, :street, :city, :state, :zipcode]
                            when "time"
