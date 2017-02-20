@@ -8,6 +8,11 @@ class ExperiencesController < ApplicationController
 
   def show
     @image_uploads = @experience.image_uploads
+
+    @booked = Reservation.where("experience_id = ? AND user_id = ?", @experience.id, current_user.id).present? if current_user
+
+    @reviews = @experience.reviews
+    @hasReview = @reviews.find_by(user_id: current_user.id) if current_user
   end
 
   def new

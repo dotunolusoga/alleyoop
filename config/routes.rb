@@ -24,6 +24,10 @@ Rails.application.routes.draw do
     resources :messages, only: [:index, :create]
   end
 
+  resources :experiences do
+    resources :reviews, only: [:create, :destroy]
+  end
+
   get '/your_outings' => 'reservations#your_outings'
   get '/your_reservations' => 'reservations#your_reservations'
 

@@ -33,7 +33,7 @@
         <div class="col-md-4">
           <div class="panel panel-defaut">
             <div class="panel-heading preview">
-              <%= image_tag experience.images[0].medium.url if experience.images.length > 0%>
+              <%= image_tag experience.image_uploads.first.image_url(:medium) if experience.image_uploads.length > 0 %>
             </div>
             <div class="panel-body">
               <%= link_to experience.experience_title, experience %>
@@ -42,6 +42,26 @@
         </div>
       <% end %>
     </div>
+
+    <h4>Reviews</h4><hr />
+
+    <% @experiences.each do |experience| %>
+      <% unless experience.reviews.blank? %>
+        <% experience.reviews.each do |review| %>
+          <div class="row">
+            <div class="col-md-2 text-center">
+              <%= image_tag avatar_url(review.user), class: "img-circle avatar-medium" %>
+              <%= review.user.fullname %>
+            </div>
+            <div class="col-md-10">
+              <%= link_to experience.experience_title, experience %><br />
+              <%= review.comment %><br />
+              <span><%= review.created_at.strftime("%v") %></span>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    <% end %>
   </div>
 
 

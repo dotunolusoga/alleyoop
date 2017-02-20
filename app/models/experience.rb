@@ -2,6 +2,7 @@ class Experience < ActiveRecord::Base
   belongs_to :user
 
   has_many :reservations
+  has_many :reviews
 
   has_many :image_uploads
   accepts_nested_attributes_for :image_uploads
@@ -41,6 +42,10 @@ class Experience < ActiveRecord::Base
 
   def address_changed?
     street_changed? || city_changed? || state_changed? || zipcode_changed?
+  end
+
+  def average_rating
+    reviews.count == 0 ? 0 : reviews.average(:star).round(2)
   end
 
 
