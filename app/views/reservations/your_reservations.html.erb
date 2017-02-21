@@ -20,7 +20,7 @@
               </div>
               <div class="col-md-6">
                 <%= link_to experience_path(reservation.experience) do %>
-                  <%= image_tag reservation.experience.images[0].thumb.url %>
+                  <%= image_tag reservation.experience.image_uploads.first.image_url(:thumb) %>
                 <% end %>
               </div>
               <div class="col-md-2">

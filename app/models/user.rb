@@ -7,9 +7,10 @@ class User < ActiveRecord::Base
 
   validates :fullname, presence: true, length: {maximum: 50}
 
-  has_many :experiences
-  has_many :reservations
-  has_many :reviews
+  has_many :experiences, dependent: :destroy
+  has_many :reservations, dependent: :destroy
+  has_many :reviews, dependent: :destroy
+  has_many :messages, dependent: :destroy
 
   def self.from_omniauth(auth)
     user = User.where(email: auth.info.email).first
