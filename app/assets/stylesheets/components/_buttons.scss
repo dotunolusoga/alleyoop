@@ -1,6 +1,7 @@
 $green: #00B28A;
 $dark-green: #008A6B;
 $orange: #FF6200;
+$blue: #3B5998;
 
 .btn-primary.btn {
   border: 1px solid $green;
@@ -22,6 +23,16 @@ $orange: #FF6200;
   background-color: $green;
   outline: none;
 }
+
+.btn-facebook.btn {
+  background-color: $blue;
+  padding: 10px 25px 10px 25px;
+  border-radius: 2px;
+  color: #FFFFFF;
+  font-weight: 400;
+  border-radius: 2px;
+}
+
 
 .btn-default.btn {
   width: 100%;

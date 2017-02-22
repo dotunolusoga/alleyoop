@@ -7,10 +7,10 @@ class ReviewsController < ApplicationController
 
   def destroy
     @review = Review.find(params[:id])
-    experience = @review.experience
+    user = @review.user
     @review.destroy
 
-    redirect_to experience
+    redirect_to user
   end
 
   private
