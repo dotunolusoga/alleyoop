@@ -20,13 +20,23 @@
     </div>
     <br />
 
-    <div class="panel panel-default">
+    <!-- <div class="panel panel-default">
       <div class="panel-heading">Rate this Host</div>
       <div class="panel-body">
-        Email number<br />
-        Phone Number
+        <div class="row">
+          <div class="col-md-12">
+            <h3>Reviews <span id="average_rating"></span> (<%= @reviews.count %>)</h3>
+            <div class="container">
+              <%= render 'reviews/form' if @canReview && !@hasReview %>
+            </div>
+            <div>
+              <%= render 'reviews/list'  %>
+            </div>
+          </div>
+
+        </div>
       </div>
-    </div>
+    </div> -->
   </div>
 
   <div class="col-md-9">
@@ -52,25 +62,36 @@
       <% end %>
     </div>
 
-    <h4>Reviews</h4><hr />
+    <div class="row">
+      <div class="col-md-12">
+        <h3>Reviews <span id="average_rating"></span> (<%= @reviews.count %>)</h3>
+        <div class="container">
+          <%= render 'reviews/form' if @canReview && !@hasReview %>
+        </div>
+        <div>
+          <%= render 'reviews/list'  %>
+        </div>
+      </div>
 
-    <% @experiences.each do |experience| %>
-      <% unless experience.reviews.blank? %>
-        <% experience.reviews.each do |review| %>
-          <div class="row">
-            <div class="col-md-2 text-center">
-              <%= image_tag avatar_url(review.user), class: "img-circle avatar-medium" %>
-              <%= review.user.fullname %>
-            </div>
-            <div class="col-md-10">
-              <%= link_to experience.experience_title, experience %><br />
-              <%= review.comment %><br />
-              <span><%= review.created_at.strftime("%v") %></span>
-            </div>
+    </div>
+
+
+    <!-- <% unless @reviews.blank? %>
+      <h4>Reviews</h4><hr />
+      <% @reviews.each do |review| %>
+        <div class="row">
+          <div class="col-md-2 text-center">
+            <%= image_tag avatar_url(review.user), class: "img-circle avatar-medium" %>
+            <%= review.user.fullname %>
           </div>
-        <% end %>
+          <div class="col-md-10">
+            <%= review.comment %><br />
+            <span><%= review.created_at.strftime("%v") %></span>
+          </div>
+        </div>
       <% end %>
-    <% end %>
+    <% end %> -->
+
   </div>
 
 

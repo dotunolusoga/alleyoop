@@ -24,7 +24,7 @@ Rails.application.routes.draw do
     resources :messages, only: [:index, :create]
   end
 
-  resources :experiences do
+  resources :users do
     resources :reviews, only: [:create, :destroy]
   end
 

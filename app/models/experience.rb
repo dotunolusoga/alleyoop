@@ -44,10 +44,6 @@ class Experience < ActiveRecord::Base
     street_changed? || city_changed? || state_changed? || zipcode_changed?
   end
 
-  def average_rating
-    reviews.count == 0 ? 0 : reviews.average(:star).round(2)
-  end
-
 
   EXPERIENCE_TYPE = [
     ['Arts & Design', 'Arts_Design'],

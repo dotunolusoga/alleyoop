@@ -30,4 +30,8 @@ class User < ActiveRecord::Base
 
   end
 
+  def average_rating
+    reviews.count == 0 ? 0 : reviews.average(:star).round(2)
+  end
+
 end
