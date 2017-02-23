@@ -35,7 +35,15 @@
   <%= f.hidden_field :experience_id, value: @experience.id %>
   <%= f.hidden_field :price, value: @experience.price %>
 
+
   <br />
-  <%= f.submit "RESERVE A SPOT", class: "btn btn-primary wide" %>
+  <!-- <%= f.submit "RESERVE A SPOT", class: "btn btn-primary wide" %> -->
+
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+          data-description="<%= @experience.experience_title %>"
+          data-amount="<%= @experience.price*100 %>"
+          data-locale="auto">
+  </script>
 
 <% end %>
