@@ -343,6 +343,8 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
+    stripe (2.0.1)
+      faraday (~> 0)
     thin (1.7.0)
       daemons (~> 1.0, >= 1.0.9)
       eventmachine (~> 1.0, >= 1.0.4)
@@ -396,6 +398,7 @@ DEPENDENCIES
   sendgrid-rails (~> 2.0, >= 2.0.5)
   simple_form
   spring
+  stripe
   thin
   toastr-rails
   uglifier (>= 1.3.0)

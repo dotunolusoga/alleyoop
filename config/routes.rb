@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
 
+  get 'charges/new'
+
+  get 'charges/create'
+
   resources :image_uploads
   root 'pages#home'
 
