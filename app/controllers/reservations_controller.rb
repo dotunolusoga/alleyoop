@@ -1,22 +1,21 @@
 class ReservationsController < ApplicationController
   before_action :authenticate_user!
+  before_action :charge_details
 
   def create
-    @experience = Experience.find(params[:experience_id])
-    @amount = @experience.price
-    @description = @experience.experience_title
 
-    customer = Stripe::Customer.create(
-      email: params[:stripeEmail],
-      source: params[:stripeToken]
-    )
+    customer = StripeTool.create_customer(email: params[:stripeEmail],
+                                          stripe_token: params[:stripeToken])
 
-    charge = Stripe::Charge.create(
-      customer: customer.id,
-      amount: @amount*100,
-      description: @description,
-      currency: 'usd'
-    )
+    charge = StripeTool.create_charge(customer_id: customer.id,
+                                      amount: @amount*100,
+                                      description: @description)
+
+    # redirect_to thanks_path
+
+  rescue Stripe::CardError => e
+    flash[:error] = e.message
+    redirect_to :back
 
     if current_user == @experience.user
       redirect_to @experience, notice: "You can't reserve a spot on your own experience..."
@@ -24,10 +23,6 @@ class ReservationsController < ApplicationController
       @reservation = current_user.reservations.create(reservation_params)
 
       redirect_to @reservation.experience, notice: "Your reservation has been made"
-
-    # rescue e
-    #   flash[:error] = e.message
-    #   redirect_to :back
     end
 
   end
@@ -40,8 +35,17 @@ class ReservationsController < ApplicationController
     @experiences = current_user.experiences
   end
 
+  def thanks
+  end
+
 
   private
+
+    def charge_details
+      @experience = Experience.find(params[:experience_id])
+      @amount = @experience.price
+      @description = @experience.experience_title
+    end
 
     def reservation_params
       params.require(:reservation).permit(:reservation_date, :price, :total, :experience_id)

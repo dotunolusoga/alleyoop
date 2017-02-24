@@ -35,6 +35,8 @@ Rails.application.routes.draw do
   get '/your_outings' => 'reservations#your_outings'
   get '/your_reservations' => 'reservations#your_reservations'
 
+  # get 'thanks', to: 'reservations#thanks', as: 'thanks'
+
 
 
 
