@@ -15,10 +15,12 @@
   </div>
 <% end %>
 
+<br />
+
 <div class="row">
   <% @experiences.each do |experience| %>
 
-    <div class="col-md-4">
+    <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading preview">
           <%= image_tag experience.image_uploads.first.image_url(:medium) if experience.image_uploads.length > 0 %>
