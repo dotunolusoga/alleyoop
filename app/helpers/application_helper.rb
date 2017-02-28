@@ -9,4 +9,18 @@ module ApplicationHelper
     end
   end
 
+  def options_for_experience_type
+    [['Arts & Design', 'Arts_Design'],
+    ['Fashion', 'Fashion'],
+    ['Sports', 'Sports'],
+    ['Wellness', 'Wellness'],
+    ['Nature', 'Nature'],
+    ['Food & Drink', 'Food_Drink'],
+    ['Lifestyle', 'Lifestyle'],
+    ['History', 'History'],
+    ['Music', 'Music'],
+    ['Business', 'Business'],
+    ['Nightlife', 'Nightlife']]
+  end
+
 end

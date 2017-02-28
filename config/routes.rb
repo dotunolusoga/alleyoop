@@ -37,6 +37,8 @@ Rails.application.routes.draw do
 
   get 'thanks', to: 'reservations#thanks', as: 'thanks'
 
+  get 'search', to: 'pages#search', as: 'search'
+
 
 
 

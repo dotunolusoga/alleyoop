@@ -1,4 +1,35 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<%= form_tag search_path, method: :get do %>
+  <div class="row">
+    <div class="col-md-6">
+      <%= text_field_tag :search, params[:search], placeholder: "Where are you going?", class: "form-control" %>
+    </div>
+    <div class="col-md-2">
+      <%= text_field_tag :experience_date, params[:experience_date], placeholder: "Experience Date", class:"form-control" %>
+    </div>
+    <div class="col-md-2">
+      <%= text_field_tag :start_time, params[:start_time], placeholder: "Start Time", class:"form-control" %>
+    </div>
+    <div class="col-md-2">
+      <%= submit_tag "Search", class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>
+
+<div class="row">
+  <% @experiences.each do |experience| %>
+
+    <div class="col-md-4">
+      <div class="panel panel-default">
+        <div class="panel-heading preview">
+          <%= image_tag experience.image_uploads.first.image_url(:medium) if experience.image_uploads.length > 0 %>
+        </div>
+        <div class="panel-body">
+          <%= link_to experience.experience_title, experience %><br />
+        </div>
+      </div>
+    </div>
+
+  <% end %>
+</div>
 
 <%= link_to 'Become a Host', experiences_path, method: :create %>
