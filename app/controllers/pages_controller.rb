@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
 
   def home
-    @experiences = Experience.all
+    @experiences = Experience.limit(3)
   end
 
   def search

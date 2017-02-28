@@ -17,15 +17,68 @@
 
 <br />
 
+<div class="text-center">
+  <h2>Find your tribe</h2>
+  <p>Discover people with similar quirly interests.</p>
+</div>
+
+<br />
+
+<div class="row">
+  <div class="col-md-4 col-sm-12">
+    <a href="http://localhost:3000/search?utf8=✓&search=new+york">
+      <div class="discovery-card" style="background-image: url('/assets/New_York.jpg')">
+        <div class="va-container">
+          <div class="va-middle text-center">
+            <h2><strong>New York</strong></h2>
+          </div>
+        </div>
+      </div>
+    </a>
+  </div>
+
+  <div class="col-md-4 col-sm-6">
+    <a href="http://localhost:3000/search?utf8=✓&search=nashville">
+      <div class="discovery-card" style="background-image: url('/assets/Nashville.jpg')">
+        <div class="va-container">
+          <div class="va-middle text-center">
+            <h2><strong>Nashville</strong></h2>
+          </div>
+        </div>
+      </div>
+    </a>
+  </div>
+
+  <div class="col-md-4 col-sm-6">
+    <a href="http://localhost:3000/search?utf8=✓&search=chicago">
+      <div class="discovery-card" style="background-image: url('/assets/Chicago.jpg')">
+        <div class="va-container">
+          <div class="va-middle text-center">
+            <h2><strong>Chicago</strong></h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </a>
+</div>
+
+<br />
+
+<div class="text-center">
+  <h2>New Experiences</h2>
+  <p>Experience your city in a totally new way.</p>
+</div>
+
 <div class="row">
   <% @experiences.each do |experience| %>
 
-    <div class="col-md-6">
+    <div class="col-md-4">
       <div class="panel panel-default">
         <div class="panel-heading preview">
           <%= image_tag experience.image_uploads.first.image_url(:medium) if experience.image_uploads.length > 0 %>
         </div>
         <div class="panel-body">
+          <%=  image_tag avatar_url(experience.user), class: "img-circle avatar-small" %>&nbsp;
           <%= link_to experience.experience_title, experience %><br />
         </div>
       </div>
@@ -33,5 +86,3 @@
 
   <% end %>
 </div>
-
-<%= link_to 'Become a Host', experiences_path, method: :create %>

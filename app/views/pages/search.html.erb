@@ -12,7 +12,7 @@
           var mapCanvas = document.getElementById('widget');
           var mapOptions = {
             <% if @arrExperiences.length > 0 %>
-              center: new google.maps.LatLng(<%= @arrExperiences[0].latitude %>, <%= @arrExperiences[0].longitude %>)
+              center: new google.maps.LatLng(<%= @arrExperiences[0].latitude %>, <%= @arrExperiences[0].longitude %>),
             <% else %>
               center: new google.maps.LatLng(44.5403, - 78.5463),
             <% end %>
