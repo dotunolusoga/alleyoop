@@ -1,5 +1,6 @@
-source 'https://rubygems.org'
+ruby "2.2.3"
 
+source 'https://rubygems.org'
 
 gem 'rails', '4.2.5'
 gem 'pg', '~> 0.15'
@@ -40,6 +41,8 @@ gem 'thin'
 gem 'stripe'
 
 gem 'ransack'
+
+gem 'rails_12factor', group: :production
 
 
 group :development, :test do
